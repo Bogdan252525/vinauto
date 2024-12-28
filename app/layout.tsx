@@ -1,6 +1,14 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
+import { Open_Sans } from "next/font/google";
+
 import "./globals.css";
+import { Header } from "@/components/shared";
+
+const openSans = Open_Sans({
+	weight: "500",
+	subsets: ['cyrillic']
+});
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -26,9 +34,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${openSans.className} antialiased`}
       >
-        {children}
+				<Header />
+				<main className='min-h-screen'>
+        	{children}
+				</main>
       </body>
     </html>
   );
