@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import localFont from "next/font/local";
 import { Open_Sans } from "next/font/google";
 
 import "./globals.css";
@@ -8,17 +7,6 @@ import { Header } from "@/components/shared";
 const openSans = Open_Sans({
 	weight: "500",
 	subsets: ['cyrillic']
-});
-
-const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
-});
-const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
-  weight: "100 900",
 });
 
 export const metadata: Metadata = {
