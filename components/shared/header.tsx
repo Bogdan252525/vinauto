@@ -19,7 +19,7 @@ interface Props {
 
 export const Header: React.FC<Props> = ({ className }) => {
   return (
-    <header className={cn('border-b bg-primary shadow-lg', className)}>
+    <header className={cn('border-b bg-primary', className)}>
       <Container className="flex items-center justify-between py-1">
         <div className="flex flex-col justify-center items-center cursor-pointer mr-3">
           <p className={`${dancingScript.className} uppercase text-background text-xl`}>vinauto</p>

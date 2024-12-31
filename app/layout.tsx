@@ -5,8 +5,9 @@ import "./globals.css";
 import { Header } from "@/components/shared";
 
 const openSans = Open_Sans({
-	weight: "500",
-	subsets: ['cyrillic']
+	weight: ["500", "800"],
+	subsets: ['cyrillic'],
+	style: ["normal", "italic"],
 });
 
 export const metadata: Metadata = {
