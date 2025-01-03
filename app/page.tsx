@@ -1,4 +1,4 @@
-import { Banner, SidebarMain } from '@/components/shared';
+import { Banner, ProductsGroup, SidebarMain } from '@/components/shared';
 import { Container } from '../components/shared';
 
 export default function Home() {
@@ -18,6 +18,7 @@ export default function Home() {
     <Container className='px-0'>
       <SidebarMain items={menuItems}>
       	<Banner />
+				<ProductsGroup />
 			</SidebarMain>
     </Container>
   );

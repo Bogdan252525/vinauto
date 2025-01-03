@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Open_Sans } from "next/font/google";
 
 import "./globals.css";
-import { Header } from "@/components/shared";
+import { Footer, Header } from "@/components/shared";
 
 const openSans = Open_Sans({
 	weight: ["500", "800"],
@@ -26,9 +26,10 @@ export default function RootLayout({
         className={`${openSans.className} antialiased`}
       >
 				<Header />
-				<main className='min-h-screen'>
-        	{children}
-				</main>
+					<main className='min-h-screen'>
+        		{children}
+					</main>
+				<Footer />
       </body>
     </html>
   );
