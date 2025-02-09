@@ -1,9 +1,13 @@
-export { Container } from './container'
-export { Header } from './header'
-export { ModalRegister } from './modal-register'
-export { DropdownHeader } from './dropdown-header'
-export { Banner } from './banner'
-export { SidebarMain } from './sidebar-main'
-export { ProductCard } from './product-card'
-export { ProductsGroup } from './products-group'
-export { Footer } from './footer'
+export { Container } from './container';
+export { Header } from './header';
+export { ModalRegister } from './modal-register';
+export { DropdownHeader } from './dropdown-header';
+export { Banner } from './banner';
+export { SidebarMain } from './sidebar-main';
+export { ProductMain } from './product-main';
+export { ProductsGroup } from './products-group';
+export { Footer } from './footer';
+export { SearchInput } from './search-input';
+export { SearchResultsOverlay } from './search-results-overlay';
+export { HeaderLogo } from './header-logo';
+export { ProductCard} from './product-card';
