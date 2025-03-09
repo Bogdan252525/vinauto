@@ -49,6 +49,8 @@ model Product {
 	status ProductStatus? @default(AVAILABLE)
 	stock Int? @default(0)
 	isOnSale Boolean @default(false)
+	discountPrice Int? @default(0)
+	isFeatured  Boolean  @default(false)
 
 	cartItems CartItem[]
 	reviews Review[]
@@ -95,7 +97,7 @@ model CartItem {
 	cart Cart @relation(fields: [cartId], references: [id])
 	cartId Int
 
-	quantity Int
+	quantity Int @default(1)
 
 	createdAt DateTime @default(now())
 	updatedAt DateTime @updatedAt

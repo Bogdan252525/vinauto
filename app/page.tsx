@@ -1,5 +1,5 @@
-import { Banner, ProductsGroup, SidebarMain } from '@/components/shared';
-import { Container } from '../components/shared';
+import { Banner, FeaturedProducts, SidebarMain } from '@/shared/components/shared';
+import { Container } from '../shared/components/shared';
 
 export default function Home() {
 	
@@ -7,7 +7,9 @@ export default function Home() {
     <Container className='px-0'>
       <SidebarMain >
       	<Banner />
-				<ProductsGroup />
+				<FeaturedProducts
+					className='flex flex-wrap gap-4 mx-4 my-6'
+				/>
 			</SidebarMain>
     </Container>
   );

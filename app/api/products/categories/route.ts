@@ -12,7 +12,10 @@ export async function GET(req: NextRequest) {
         where: { isPrimary: true },
         select: { url: true }
       }
-    }
+    },
+		orderBy: {
+      status: 'asc',
+    },
   });
   return NextResponse.json(products);
 }

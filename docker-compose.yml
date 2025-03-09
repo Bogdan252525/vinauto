@@ -10,17 +10,6 @@ services:
     ports:
       - "5432:5432"
 
-  app:
-    build: .
-    environment:
-      DATABASE_URL: postgres://admin:admin@postgres:5432/admin_db
-    volumes:
-      - .:/app
-    ports:
-      - "3000:3000"
-    depends_on:
-      - postgres
-
   adminer:
     image: adminer
     restart: always

@@ -1,7 +1,8 @@
 import { Open_Sans } from "next/font/google";
 
 import "./globals.css";
-import { Footer, Header } from "@/components/shared";
+import { Footer, Header } from "@/shared/components/shared";
+import { Toaster } from "react-hot-toast";
 
 const openSans = Open_Sans({
 	weight: ["500", "800"],
@@ -22,6 +23,7 @@ export default function RootLayout({
 				<Header />
 					<main className='min-h-screen'>
         		{children}
+						<Toaster />
 					</main>
 				<Footer />
       </body>
