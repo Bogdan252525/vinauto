@@ -1,0 +1,7 @@
+export { ProductPhoto as Photo } from './product-photo'
+export { ProductPrices as Price } from './product-prices'
+export { ProductRating as Rating } from './product-rating'
+export { ProductInformation as Information } from './product-information'
+export { DescriptionReviewsToggle as Toggle } from './description-reviews-toggle'
+export { ProductReviews as Reviews } from './product-reviews'
+export { RelatedProducts as Related } from './related-products'

@@ -1,11 +1,13 @@
 import * as products from './products'
-import * as categories from './categories'
-import * as productsByCategory from './products-by-category'
 import * as cart from './cart'
+import * as search from './filters'
+import * as carModels from './car-models'
+import * as related from './related-products'
 
 export const Api = {
 	products,
-	categories,
-	productsByCategory,
 	cart,
+  search,
+  carModels,
+  related,
 }

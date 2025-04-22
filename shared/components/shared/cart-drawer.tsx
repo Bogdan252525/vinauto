@@ -33,7 +33,7 @@ export const CartDrawer: React.FC<React.PropsWithChildren> = ({ children }) => {
 
   React.useEffect(() => {
     fetchCartItems();
-  }, []);
+  }, [fetchCartItems]);
 
   const onClickCountButton = (
     id: number,
@@ -70,13 +70,12 @@ export const CartDrawer: React.FC<React.PropsWithChildren> = ({ children }) => {
               />
               <div className="text-center font-bold my-2">Корзина порожня</div>
               <SheetClose>
-                <Button
-                  className="w-56 h-12 text-base"
-                  size="lg"
+                <div
+                  className="min-w-64 h-12 text-base bg-primary flex justify-center items-center rounded-md text-background"
                 >
                   <ArrowLeft className="w-5 mr-2" />
                   Повернутись назад
-                </Button>
+                </div>
               </SheetClose>
             </div>
           )}

@@ -4,7 +4,6 @@ import { cn } from '@/shared/lib/utils';
 import Image from 'next/image';
 import React from 'react';
 import { Dancing_Script } from 'next/font/google';
-import { useCategoryStore } from '@/shared/store/categoryStore';
 import Link from 'next/link';
 
 const dancingScript = Dancing_Script({
@@ -17,19 +16,9 @@ interface Props {
 }
 
 export const HeaderLogo: React.FC<Props> = ({ className }) => {
-  const setSelectedCategory = useCategoryStore(
-    (state) => state.setSelectedCategory
-  );
-  const setProducts = useCategoryStore((state) => state.setProducts);
-
-  const handleLogoClick = () => {
-    setSelectedCategory(null);
-    setProducts([]);
-  };
 
   return (
     <div
-      onClick={handleLogoClick}
       className={cn(
         'flex flex-col justify-center items-center cursor-pointer',
         className

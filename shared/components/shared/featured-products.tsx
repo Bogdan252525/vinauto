@@ -1,6 +1,6 @@
 import { getFeaturedProducts } from "@/shared/lib";
 import { ProductCard } from "./product-card";
-import { ProductWithImages } from "@/types/types";
+import { ProductWithSubCategoryAndCategory } from "@/types/types";
 import { cn } from "@/shared/lib/utils";
 
 interface Props {
@@ -8,13 +8,17 @@ interface Props {
 }
 
 export const FeaturedProducts: React.FC<Props> = async ({ className, }) => {
-  const products: ProductWithImages[] = await getFeaturedProducts();
+  const products: ProductWithSubCategoryAndCategory[] = await getFeaturedProducts();
 
   return (
 		<ul className={cn(className)}>
 			{products && products.length > 0 ? (
 				products.map((product) => (
-					<ProductCard key={product.id} product={product} />
+					<ProductCard
+            path={`/categories/${product.subCategory.category.id}/subcategories/${product.subCategoryId}/products/${product.id}`}
+            key={product.id}
+            product={product}
+          />
 				))
 			) : (
 				<p>Немає рекомендованих продуктів</p>

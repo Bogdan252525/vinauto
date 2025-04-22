@@ -4,7 +4,6 @@ export { ModalRegister } from './modal-register';
 export { DropdownHeader } from './dropdown-header';
 export { Banner } from './banner';
 export { SidebarMain } from './sidebar-main';
-export { ProductMain } from './product-main';
 export { FeaturedProducts } from './featured-products';
 export { Footer } from './footer';
 export { SearchInput } from './search-input';
@@ -18,3 +17,11 @@ export { ProductsByCategory } from './products-by-category';
 export { ProductAvailability } from './product-availability';
 export { ProductPrice } from './product-price'
 export { IsSaleMark } from './is-sale-mark';
+export { SubCategoryCard } from './sub-category-card';
+export { SubCategories } from './sub-categories';
+export { SidebarCategories } from './sidebar-categories';
+export { SidebarTrigger } from './sidebar-trigger';
+export { SidebarFilters } from './sidebar-filters';
+export { PaginationComponent } from './pagination-conponent'
+export { RatingStars } from './rating-stars'
+export { ProductDetail } from './product-detail'

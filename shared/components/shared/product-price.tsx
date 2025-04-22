@@ -7,19 +7,33 @@ interface Props {
 }
 
 export const ProductPrice: React.FC<Props> = ({ price, discountPrice, className }) => {
+  const hasDiscount = typeof discountPrice === 'number' && discountPrice > 0;
 
-	const hasDiscount = discountPrice && discountPrice > 0;
-
-	return (
-		<div className={className}>
-			{hasDiscount ? (
+  return (
+    <div className={className}>
+      {hasDiscount ? (
         <>
-					<span className="text-gray-500 line-through text-sm">{price} грн</span>
-          <span className="text-red-500 font-semibold">{discountPrice} грн</span>
+          <span
+            aria-label="Стара ціна"
+            className="text-gray-500 line-through text-sm"
+          >
+            {price} грн
+          </span>
+          <span
+            aria-label="Ціна зі знижкою"
+            className="text-red-500 font-semibold"
+          >
+            {discountPrice} грн
+          </span>
         </>
       ) : (
-        <span className="text-black font-semibold">{price} грн</span>
+        <span
+          aria-label="Звичайна ціна"
+          className="text-black font-semibold"
+        >
+          {price} грн
+        </span>
       )}
-		</div>
-	);
+    </div>
+  );
 };

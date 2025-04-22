@@ -7,7 +7,7 @@ export type CartStateItem = {
   name: string;
   imageUrl: string;
   price: number;
-	disabled: boolean;
+  disabled: boolean;
 };
 
 interface ReturnProps {
@@ -16,17 +16,20 @@ interface ReturnProps {
 }
 
 export const getCartDetails = (data: CartDTO): ReturnProps => {
-	const items = data.items.map((item) => ({
-		id: item.id,
-		quantity: item.quantity,
-		name: item.productItem.name,
-		imageUrl: item.productItem.images[0].url,
-		price: calcCArtItemTotalPrice(item),
-		disabled: false,
-	}))
+  const items = data.items.map((item) => ({
+    id: item.id,
+    quantity: item.quantity,
+    name: item.productItem.name,
+    imageUrl: item.productItem.images?.[0]?.url || '/assets/img/photo-placeholder.jpg',
+    price: calcCArtItemTotalPrice(item),
+    disabled: false,
+  }));
 
-	return {
-		items,
-		totalAmount: data.totalAmount,
-	}
-}
+  // Перерахунок загальної суми
+  const totalAmount = items.reduce((sum, item) => sum + item.price, 0);
+
+  return {
+    items,
+    totalAmount,
+  };
+};

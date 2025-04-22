@@ -2,30 +2,42 @@
 
 import React from 'react';
 import { Api } from '@/shared/services/api-client';
-import { ProductWithImages } from '@/types/types';
+import { ProductWithSubCategoryAndCategory } from '@/types/types';
 import { useSearchStore } from '@/shared/store/search';
 import { Container } from './container';
 import { cn } from '@/shared/lib/utils';
 import { useDebounce } from 'react-use';
-import Link from 'next/link';
-import Image from 'next/image';
-import { ProductPrice } from './product-price';
+import { ProductCardMini } from './product-card-mini';
 
 interface Props {
   className?: string;
+  debounceTime?: number;
 }
 
-export const SearchResultsOverlay: React.FC<Props> = ({ className }) => {
+export const SearchResultsOverlay: React.FC<Props> = ({
+  className,
+  debounceTime = 250,
+}) => {
   const { searchQuery, setSearchQuery } = useSearchStore();
-  const [products, setProducts] = React.useState<ProductWithImages[]>([]);
+  const [products, setProducts] = React.useState<ProductWithSubCategoryAndCategory[]>([]);
 
   useDebounce(
     () => {
-      Api.products.search(searchQuery).then((items) => {
-        setProducts(items);
-      });
+      if (!searchQuery) return;
+
+      const fetchProducts = async () => {
+        try {
+          const items = await Api.products.search(searchQuery);
+          setProducts(items);
+        } catch (error) {
+          console.error('Failed to fetch search results:', error);
+          setProducts([]);
+        }
+      };
+
+      fetchProducts();
     },
-    250,
+    debounceTime,
     [searchQuery]
   );
 
@@ -44,39 +56,25 @@ export const SearchResultsOverlay: React.FC<Props> = ({ className }) => {
       )}
     >
       <Container>
-        <h2>Результати пошуку для {searchQuery}</h2>
-        <ul className="flex gap-2 flex-wrap">
-          {products.map((product) => (
-            <li
-              key={product.id}
-              onClick={handleInputClean}
-            >
-              <Link
-                href={`/product/${product.id}`}
-                className="w-[206px] h-[250px] border rounded-md flex flex-col items-center justify-center gap-2 flex-shrink-0 px-1 bg-background shadow"
-              >
-                <div className="h-[110px] flex items-center mb-1">
-                  <Image
-                    src={product.images[0].url}
-                    alt={product.name}
-                    width={0}
-                    height={0}
-                    sizes="100vw"
-                    priority
-                    className="w-auto h-[110px]"
-                  />
-                </div>
-                <div className="text-center">
-                  <h3 className="multi-line-truncate mb-1 h-[50px]">{product.name}</h3>
-									<ProductPrice
-										price={product.price}
-										discountPrice={product.discountPrice}
-										className='flex justify-center items-center gap-1'
-									/>                
-                </div>
-              </Link>
-            </li>
-          ))}
+        <h2 className="sr-only">Результати пошуку</h2>
+        <h2>Результати пошуку для: {searchQuery}</h2>
+        <ul className="flex mt-2 gap-2 flex-wrap">
+          {products.length > 0 ? (
+            products.map((product) => {
+
+              return (
+                <ProductCardMini
+                  key={product.id}
+                  product={product}
+                  path={`/categories/${product.subCategory.category.id}/subcategories/${product.subCategoryId}/products/${product.id}`}
+                  handleInputClean={handleInputClean}
+                />
+              );
+            })
+            
+          ) : (
+            <p className="text-red-500 text-center mt-2">Завантаження ...</p>
+          )}
         </ul>
       </Container>
     </div>

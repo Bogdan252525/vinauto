@@ -8,7 +8,7 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-} from "@/shared/components/ui"
+} from "@/shared/components/ui/dialog"
 import { Input } from "@/shared/components/ui"
 import { Label } from "@/shared/components/ui"
 import { LogIn } from 'lucide-react';
@@ -36,6 +36,7 @@ export const ModalRegister: React.FC = () => {
             Введіть будь-ласка ваш email та пароль
           </DialogDescription>
         </DialogHeader>
+        
         <div className="grid gap-4 py-4">
           <div className="grid grid-cols-4 items-center gap-4">
             <Label htmlFor="name" className="text-right">

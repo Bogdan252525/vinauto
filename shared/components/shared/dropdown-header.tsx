@@ -8,7 +8,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuShortcut,
   DropdownMenuTrigger,
-} from "@/shared/components/ui"
+} from "@/shared/components/ui/dropdown-menu"
 import { CircleChevronDown } from "lucide-react"
 
 export const DropdownHeader: React.FC = () =>{
