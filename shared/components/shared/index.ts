@@ -25,3 +25,8 @@ export { SidebarFilters } from './sidebar-filters';
 export { PaginationComponent } from './pagination-conponent'
 export { RatingStars } from './rating-stars'
 export { ProductDetail } from './product-detail'
+export { CheckoutSidebar } from './checkout-sidebar'
+export { NewPostCheckout } from './new-post-checkout'
+
+export * from './checkout'
+export * from './form'

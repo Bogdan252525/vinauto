@@ -29,8 +29,6 @@ export const CartDrawer: React.FC<React.PropsWithChildren> = ({ children }) => {
     removeCartItem,
   } = useCartStore();
 
-	console.log(items);
-
   React.useEffect(() => {
     fetchCartItems();
   }, [fetchCartItems]);
@@ -114,7 +112,7 @@ export const CartDrawer: React.FC<React.PropsWithChildren> = ({ children }) => {
 
                     <span className="font-bold text-lg">{totalAmount} грн</span>
                   </div>
-                  <Link href="/cart">
+                  <Link href="/checkout">
                     <Button
                       type="submit"
                       className="w-full h-12 text-base"
